@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+var debug = require('debug')('my-application');
+var app = require('../app');
+var ioServer = require('http').createServer(app);
+var io = require('socket.io').listen(ioServer);
+var reporter = require('../lib/reporter').start(app, io);
+
+app.set('port', process.env.PORT || 3000);
+
+var server = ioServer.listen(app.get('port'));

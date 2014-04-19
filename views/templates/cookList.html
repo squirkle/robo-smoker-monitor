@@ -1,0 +1,14 @@
+<section id="grillapp">
+  <!-- <h1>Cooks</h1> -->
+  <ul id="cook-list">
+    {{#each itemController="cook"}}
+    <li {{bind-attr class="isActive:activeCook"}}>
+      <label>{{#link-to "cook" model}}{{title}}{{/link-to}}</label><button {{action "removeCook"}} class="destroy"></button>
+    </li>
+    {{/each}}
+  </ul>
+  {{input type="text" id="new-cook" placeholder="What are you cooking?" value=newTitle action="createCook"}}
+  <div id="cookViewer">
+    {{outlet}}
+  </div>
+</section>

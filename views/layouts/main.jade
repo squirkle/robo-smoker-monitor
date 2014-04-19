@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+  head
+    title= title
+    style.
+      .activeCook a {
+        color: red;
+      }
+  body
+
+    block content
+
+    script(src="/socket.io/socket.io.js")
+    script(src="/js/vendor/jquery-1.10.2.js")
+    script(src="/js/vendor/handlebars-1.1.2.js")
+    script(src="/js/vendor/ember-1.5.0.js")
+    script(src="/js/vendor/ember-data.js")
+    script(src="/js/vendor/highcharts.js")
+    script(src="/js/app.js")
+    script(src="/js/router.js")
+    script(src="/js/models/cook.js")
+    script(src="/js/models/report.js")
+    script(src="/js/controllers/cooks_controller.js")
+    script(src="/js/controllers/cook_controller.js")
+    script(src="/js/views/cook_view.js")
+    script(src="/js/io-setup.js")
