@@ -6,6 +6,4 @@ Monitor.Router = Ember.Router.extend({
 Monitor.ApplicationAdapter = DS.RESTAdapter.extend({
   host: '/api'
 });
-Monitor.ApplicationSerializer = DS.RESTSerializer.extend({
-  primaryKey: '_id'
-});
+Monitor.ApplicationSerializer = DS.RESTSerializer.extend();

@@ -1,4 +1,18 @@
-cook viewer
-<div id="myChart" style="width:100%; height:700px;"></div>
-
-{{view.graph}}
+cook viewer: {{title}}
+<table class="table">
+  <tr>
+    <th>Target Temperature</th>
+    <th>Pit Temperature</th>
+    <th>Fan Output</th>
+    <th>Paused</th>
+    <th>Output Phase</th>
+  </tr>
+  <tr>
+    <td>{{lastReport.target}}</td>
+    <td>{{lastReport.pit}}</td>
+    <td>{{lastReport.output}}</td>
+    <td>{{lastReport.paused}}</td>
+    <td>{{lastReport.phase}}</td>
+  </tr>
+</table>
+{{outlet}}

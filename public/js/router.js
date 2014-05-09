@@ -1,15 +1,20 @@
 Monitor.Router.map(function() {
   this.resource('cooks', { path: '/' }, function () {
-    this.resource('cook', { path: '/cooks/:cook_id' });
+    this.resource('cook', { path: '/cooks/:cook_id' }, function () {
+      this.resource('reports', { path: '/' });
+    });
   });
 });
 
 Monitor.CookRoute = Ember.Route.extend({
   model: function (params) {
     return this.store.find('cook', params.cook_id);
-  },
-  activate: function () {
+  }
+});
 
+Monitor.ReportsRoute = Ember.Route.extend({
+  setupController: function (controller, cook) {
+    controller.set('model', cook.get('reports'));
   }
 });
 

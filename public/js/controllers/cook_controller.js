@@ -15,25 +15,12 @@ Monitor.CookController = Ember.ObjectController.extend({
       } else {
         this.get('model').save();
       }
-    },
+    }
   },
-  graphKeys: ['pit', 'output', 'target', 'paused', 'phase'],
-  graphReports: Ember.arrayComputed('reports', {
-    initialize: function (graphReports, changed, meta) {
-      this.get('model.reports').forEach(function (report) {
-        var stamp = report.get('timestamp');
-        this.graphKeys.forEach(function (key, i) {
-          graphReports[i] = graphReports[i] || [];
-          graphReports[i].push({ x: stamp, y: report.get(key) });
-        });
-      }, this);
-    },
-    addedItem: function (graphReports, report, changed, meta) {
-      var stamp = report.get('timestamp');
-      this.graphKeys.forEach(function (key, i) {
-        graphReports[i] = graphReports[i] || [];
-        graphReports[i].push({ x: stamp, y: report.get(key) });
-      });
+  lastReport: Ember.reduceComputed('reports', {
+    initialValue: {},
+    addedItem: function (nil, report) {
+      return report;
     }
   })
 });

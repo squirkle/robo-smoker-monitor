@@ -1,8 +1,4 @@
 var mongoose = require('mongoose');
-
-var cookSchema = mongoose.Schema({
-  title: 'string',
-  isActive: 'boolean'
-});
+    cookSchema = require('../schemas/cook');
 
 module.exports = mongoose.model('Cook', cookSchema);
